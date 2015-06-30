@@ -1,0 +1,29 @@
+{
+  "mainFile": "C:/Users/Servitronic/Desktop/Teensy/PipBoy/main.py", 
+  "use-tabs": false, 
+  "venv": "", 
+  "relatedProjects": [], 
+  "name": "PipBoy", 
+  "license": "", 
+  "url": "", 
+  "pythonPath": "C:/Users/Servitronic/Desktop/Kivy/kivy-2.7.bat", 
+  "preExecScript": "", 
+  "additional_builtins": [], 
+  "programParams": "", 
+  "indentation": 4, 
+  "PYTHONPATH": "", 
+  "supported-extensions": [
+    ".py", 
+    ".html", 
+    ".jpg", 
+    ".png", 
+    ".ui", 
+    ".css", 
+    ".json", 
+    ".js", 
+    ".ini"
+  ], 
+  "project-type": "", 
+  "postExecScript": "", 
+  "description": ""
+}
