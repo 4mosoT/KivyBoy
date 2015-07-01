@@ -9,8 +9,8 @@ import labels
 # Colores: #64FEB5 #005A21
 
 class Manager(ScreenManager):
-    def __init__(self, *args, **kwargs):
-        super(Manager, self).__init__(*args, **kwargs)
+    def __init__(self, **kwargs):
+        super(Manager, self).__init__(**kwargs)
 
 
 class Stats(ScreenTmplt):
