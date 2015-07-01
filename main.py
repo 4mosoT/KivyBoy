@@ -6,52 +6,47 @@ from kivy.clock import Clock
 import psutil
 import labels
 
-#Colores: #64FEB5 #005A21
+# Colores: #64FEB5 #005A21
 
 class Manager(ScreenManager):
-
     def __init__(self, *args, **kwargs):
         super(Manager, self).__init__(*args, **kwargs)
 
 
 class Stats(ScreenTmplt):
-
     def __init__(self, *args, **kwargs):
         super(Stats, self).__init__(**kwargs)
 
-        #Call update func every .5 secs
+        # Call update func every .5 secs
         Clock.schedule_interval(self.update, 0.5)
 
-        #Read use of RAM and set text label
+        # Read use of RAM and set text label
         memory = psutil.virtual_memory().percent
-        self.ram = labels.PipLabel(text=str(memory),size_hint=(0,0), size=(20,20), pos=(130,205), gradient=True)
-        self.add_widget(labels.PipLabel(text='RAM',size_hint=(0,0), size=(30,20), pos=(100,205)))
+        self.ram = labels.PipLabel(text=str(memory), size_hint=(0, 0), size=(20, 20), pos=(135, 205), gradient=True)
+        self.add_widget(labels.PipLabel(text='RAM', size_hint=(0, 0), size=(30, 20), pos=(100, 205)))
         self.add_widget(self.ram)
 
         with self.canvas.before:
-            Rectangle(source='images/tboy.gif',size_hint=(0,0),pos=(100,80))
+            Rectangle(source='images/tboy.gif', size_hint=(0, 0), pos=(100, 80))
 
     def update(self, *args):
         self.memory = psutil.virtual_memory().percent
         self.ram.text = str(self.memory)
 
-class Objects(ScreenTmplt):
 
+class Objects(ScreenTmplt):
     def __init__(self, *args, **kwargs):
         super(Objects, self).__init__(**kwargs)
 
 
 class Skills(ScreenTmplt):
-
     def __init__(self, *args, **kwargs):
         super(Skills, self).__init__(**kwargs)
 
 
-
 class MainApp(App):
-
     def build(self):
-        root=Manager(transition=NoTransition())
+        root = Manager(transition=NoTransition())
         stats = Stats(name='stats')
         skills = Skills(name='skills')
         objects = Objects(name='objects')
@@ -60,7 +55,6 @@ class MainApp(App):
         root.add_widget(objects)
 
         return root
-
 
 
 if __name__ == '__main__':
