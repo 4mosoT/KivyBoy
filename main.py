@@ -14,7 +14,7 @@ class Manager(ScreenManager):
 
 
 class Stats(ScreenTmplt):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         super(Stats, self).__init__(**kwargs)
 
         # Call update func every .5 secs
@@ -30,17 +30,17 @@ class Stats(ScreenTmplt):
             Rectangle(source='images/tboy.gif', size_hint=(0, 0), pos=(100, 80))
 
     def update(self, *args):
-        self.memory = psutil.virtual_memory().percent
-        self.ram.text = str(self.memory)
+        memory = psutil.virtual_memory().percent
+        self.ram.text = str(memory)
 
 
 class Objects(ScreenTmplt):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         super(Objects, self).__init__(**kwargs)
 
 
 class Skills(ScreenTmplt):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         super(Skills, self).__init__(**kwargs)
 
 

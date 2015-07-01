@@ -5,8 +5,6 @@ from  kivy.properties import ObjectProperty, StringProperty
 
 # Main Button
 class PipButton(Button):
-    screenmanager = ObjectProperty()
-    screen = StringProperty()
     # We can choose if the button is selected or not, and if we can draw de side lines
     def __init__(self, upper=False, draw_lines=True, selected=False, **kwargs):
         super(PipButton, self).__init__(**kwargs)
