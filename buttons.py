@@ -8,8 +8,10 @@ class PipButton(Button):
     screenmanager = ObjectProperty()
     screen = StringProperty()
     #We can choose if the button is selected or not, and if we can draw de side lines
-    def __init__(self, draw_lines = True,selected = False, **kwargs):
+    def __init__(self,upper=False, draw_lines = True,selected = False, **kwargs):
         super(PipButton, self).__init__(**kwargs)
+        self.selected = selected
+        self.upper = upper
         if 'screenmanager' in kwargs:
             self.screenmanager= kwargs['screenmanager']
         if 'screen' in kwargs:
@@ -29,13 +31,21 @@ class PipButton(Button):
             Color(100/256., 254/256., 181/256.)
             if selected:
                 self.linea= Line( rectangle=(self.x, self.y, self.width, self.height), width=1.3)
-            if self.draw_lines:
+            if draw_lines:
                 self.linea2 = Line(width=1.3, points=[self.x - 17, self.height/2 + self.y, self.x - 5, self.height/2 +  self.y])
                 self.linea3 = Line(width=1.3, points=[self.x + self.width + 17, self.height/2.+ self.y,self.x + self.width + 5, self.height/2. + self.y])
 
+            if upper:
+                aux = 0
+                for x in range(1,9):
+                    Color(100/256., 254/256., 181/256., .9 - x/10.)
+                    Line( points=[self.x + self.width + 17, self.height/2.+ self.y - aux, self.x + self.width + 17,self.height/2.+ self.y - aux - 5], width=1.3)
+                    aux += 2
+
 
     def update(self, *args):
-        self.linea.rectangle = (self.x,self.y ,self.width, self.height)
+        if self.selected:
+            self.linea.rectangle = (self.x,self.y ,self.width, self.height)
         if self.draw_lines:
             self.linea2.points = [self.x - 17, self.height/2 + 1 + self.y, self.x - 5, self.height/2 + 1 +self.y]
             self.linea3.points = [self.x + self.width + 17, self.height/2 + 1 + self.y,self.x + self.width + 5, self.height/2 + 1 +self.y]

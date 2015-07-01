@@ -2,7 +2,9 @@ from kivy.app import App
 from kivy.graphics import Rectangle
 from kivy.uix.screenmanager import ScreenManager, NoTransition
 from screens import ScreenTmplt
-from  kivy.uix.label import Label
+from kivy.clock import Clock
+import psutil
+import labels
 
 #Colores: #64FEB5 #005A21
 
@@ -17,15 +19,26 @@ class Stats(ScreenTmplt):
     def __init__(self, *args, **kwargs):
         super(Stats, self).__init__(**kwargs)
 
-    def on_pre_enter(self, *args):
-        super(Stats, self).on_pre_enter(*args)
+        #Call update func every .5 secs
+        Clock.schedule_interval(self.update, 0.5)
+
+        #Read use of RAM and set text label
+        memory = psutil.virtual_memory().percent
+        self.ram = labels.PipLabel(text=str(memory),size_hint=(0,0), size=(20,20), pos=(130,205), gradient=True)
+        self.add_widget(labels.PipLabel(text='RAM',size_hint=(0,0), size=(30,20), pos=(100,205)))
+        self.add_widget(self.ram)
+
         with self.canvas.before:
             Rectangle(source='images/tboy.gif',size_hint=(0,0),pos=(100,80))
 
-class PiObjects(ScreenTmplt):
+    def update(self, *args):
+        self.memory = psutil.virtual_memory().percent
+        self.ram.text = str(self.memory)
+
+class Objects(ScreenTmplt):
 
     def __init__(self, *args, **kwargs):
-        super(PiObjects, self).__init__(**kwargs)
+        super(Objects, self).__init__(**kwargs)
 
 
 class Skills(ScreenTmplt):
@@ -41,11 +54,10 @@ class MainApp(App):
         root=Manager(transition=NoTransition())
         stats = Stats(name='stats')
         skills = Skills(name='skills')
-        objects = PiObjects(name='objects')
+        objects = Objects(name='objects')
         root.add_widget(stats)
         root.add_widget(skills)
         root.add_widget(objects)
-        stats.on_pre_enter()
 
         return root
 
