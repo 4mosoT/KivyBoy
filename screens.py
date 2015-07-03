@@ -12,7 +12,7 @@ class ScreenTmplt(Screen):
 
         self.bind(size=self._update_rect, pos=self._update_rect)
 
-    def _update_rect(self, instance, value):
+    def _update_rect(self, instance, *args):
 
         snames = self.manager.screen_names
         initial_pos = [29, 4]

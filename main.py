@@ -21,8 +21,7 @@ class Stats(ScreenTmplt):
         Clock.schedule_interval(self.update, 0.5)
 
         # Read use of RAM and set text label
-        memory = psutil.virtual_memory().percent
-        self.ram = labels.PipLabel(text=str(memory), size_hint=(0, 0), size=(20, 20), pos=(135, 205), gradient=True)
+        self.ram = labels.PipLabel(size_hint=(0, 0), size=(20, 20), pos=(135, 205), gradient=True)
         self.add_widget(labels.PipLabel(text='RAM', size_hint=(0, 0), size=(30, 20), pos=(100, 205)))
         self.add_widget(self.ram)
 

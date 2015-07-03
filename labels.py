@@ -1,9 +1,9 @@
-from  kivy.uix.label import Label
+import kivy.uix.label
 from kivy.utils import get_color_from_hex
 from kivy.graphics import Line, Color
 
 
-class PipLabel(Label):
+class PipLabel(kivy.uix.label.Label):
     def __init__(self, gradient=False, **kwargs):
         super(PipLabel, self).__init__(**kwargs)
         self.font_name = 'monofonto.ttf'

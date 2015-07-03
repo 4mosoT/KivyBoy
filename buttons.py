@@ -24,7 +24,7 @@ class PipButton(Button):
             self.background_color = [1, 1, 1, 0]
         self.font_name = 'monofonto.ttf'
         self.font_size = "13sp"
-        self.bind(size=self.update, pos=self.update)
+
         with self.canvas.before:
             Color(100 / 256., 254 / 256., 181 / 256.)
             if selected:
@@ -44,13 +44,6 @@ class PipButton(Button):
                                  self.height / 2. + self.y - aux - 5], width=1.3)
                     aux += 2
 
-    def update(self, *args):
-        if self.selected:
-            self.linea.rectangle = (self.x, self.y, self.width, self.height)
-        if self.draw_lines:
-            self.linea2.points = [self.x - 17, self.height / 2 + 1 + self.y, self.x - 5, self.height / 2 + 1 + self.y]
-            self.linea3.points = [self.x + self.width + 17, self.height / 2 + 1 + self.y, self.x + self.width + 5,
-                                  self.height / 2 + 1 + self.y]
 
     def on_press(self, *args):
         super(PipButton, self).on_press(*args)
