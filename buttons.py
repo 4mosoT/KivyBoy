@@ -34,10 +34,10 @@ class PipButton(Button):
             if selected:
                 self.linea = Line(rectangle=(self.x, self.y, self.width, self.height), width=1.3)
             if draw_lines:
-                #Left line
+                # Left line
                 self.linea2 = Line(width=1.3,
                                    points=[self.x - 17, self.height / 2 + self.y, self.x - 5, self.height / 2 + self.y])
-                #Right line
+                # Right line
                 self.linea3 = Line(width=1.3,
                                    points=[self.x + self.width + 17, self.height / 2. + self.y, self.x + self.width + 5,
                                            self.height / 2. + self.y])
@@ -47,9 +47,8 @@ class PipButton(Button):
                 for x in range(1, 9):
                     Color(100 / 256., 254 / 256., 181 / 256., .9 - x / 10.)
                     Line(points=[self.x + self.width + 17, self.height / 2. + self.y - aux, self.x + self.width + 17,
-                                self.height / 2. + self.y - aux - 5], width=1.3)
+                                 self.height / 2. + self.y - aux - 5], width=1.3)
                     aux += 2
-
 
     def on_press(self, *args):
         super(PipButton, self).on_press(*args)

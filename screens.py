@@ -3,8 +3,6 @@ from kivy.graphics import Rectangle, Line, Color
 import buttons
 
 
-
-
 class ScreenTmplt(Screen):
     def __init__(self, **kwargs):
         super(ScreenTmplt, self).__init__(**kwargs)
@@ -46,4 +44,3 @@ class ScreenTmplt(Screen):
                      width=1.3)  # Gradient top left
                 Line(points=[10, aux, 10, aux + 2], width=1.3)  # Gradient bottom left
                 aux += 2
-

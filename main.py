@@ -18,7 +18,8 @@ class Manager(ScreenManager):
 class Stats(ScreenTmplt):
     def __init__(self, **kwargs):
         super(Stats, self).__init__(**kwargs)
-        self.add_widget(buttons.PipButton(upper=True, text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
+        self.add_widget(
+            buttons.PipButton(upper=True, text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
         # Call update func every .5 secs
         Clock.schedule_interval(self.update, 0.5)
         # Read use of RAM and set text label
@@ -37,41 +38,44 @@ class Stats(ScreenTmplt):
 class Objects(ScreenTmplt):
     def __init__(self, **kwargs):
         super(Objects, self).__init__(**kwargs)
-        self.add_widget(buttons.PipButton(upper=True, text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
+        self.add_widget(
+            buttons.PipButton(upper=True, text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
 
 
 class Map(ScreenTmplt):
     def __init__(self, **kwargs):
         super(Map, self).__init__(**kwargs)
 
-        self.lat =40.714728
-        self.long=-73.998672
+        self.lat = 40.714728
+        self.long = -73.998672
         self.zoom = 13
 
-        self.g_image=AsyncImage(source='https://maps.googleapis.com/maps/api/staticmap?size=295x190&zoom=13&center='+str(self.lat)+','+str(self.long)+'&style=|color:0x000000'
-                                          '&style=feature:road|color:0x0E4B29'
-                                          '&style=feature:all|element:labels|color:0x64FEB5|visibility:off'
-                                  )
+        self.g_image = AsyncImage(
+            source='https://maps.googleapis.com/maps/api/staticmap?size=295x190&zoom=13&center=' + str(
+                self.lat) + ',' + str(self.long) + '&style=|color:0x000000'
+                                                   '&style=feature:road|color:0x0E4B29'
+                                                   '&style=feature:all|element:labels|color:0x64FEB5|visibility:off'
+            )
 
         self.add_widget(self.g_image)
         self.add_widget(buttons.PipButton(text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
 
-
-
-        zoom_in_button = buttons.PipButton(selected=True, text="Zoom In", size_hint=(0, 0), size=(60, 18), pos=(100, 216))
+        zoom_in_button = buttons.PipButton(selected=True, text="Zoom In", size_hint=(0, 0), size=(60, 18),
+                                           pos=(100, 216))
         zoom_in_button.bind(on_release=self.zoom_in)
         self.add_widget(zoom_in_button)
 
-        zoom_out_button = buttons.PipButton(selected=True, text="Zoom Out", size_hint=(0, 0), size=(60, 18), pos=(180, 216))
+        zoom_out_button = buttons.PipButton(selected=True, text="Zoom Out", size_hint=(0, 0), size=(60, 18),
+                                            pos=(180, 216))
         zoom_out_button.bind(on_release=self.zoom_out)
         self.add_widget(zoom_out_button)
-
-
 
         self.add_widget(buttons.PipButton(text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
 
     def update_map(self, *args):
-        self.g_image.source= 'https://maps.googleapis.com/maps/api/staticmap?size=295x190&zoom='+str(self.zoom)+'&center='+str(self.lat)+','+str(self.long)+'&style=|color:0x000000&style=feature:road|color:0x0E4B29&style=feature:all|element:labels|color:0x64FEB5|visibility:off'
+        self.g_image.source = 'https://maps.googleapis.com/maps/api/staticmap?size=295x190&zoom=' + str(
+            self.zoom) + '&center=' + str(self.lat) + ',' + str(
+            self.long) + '&style=|color:0x000000&style=feature:road|color:0x0E4B29&style=feature:all|element:labels|color:0x64FEB5|visibility:off'
 
     def zoom_in(self, *args):
         self.zoom += 1
@@ -105,7 +109,6 @@ class Map(ScreenTmplt):
 
 class MainApp(App):
     def build(self):
-
         root = Manager(transition=NoTransition())
         stats = Stats(name='stats')
         map = Map(name='map')
@@ -113,8 +116,6 @@ class MainApp(App):
         root.add_widget(stats)
         root.add_widget(map)
         root.add_widget(objects)
-
-
 
         return root
 
