@@ -93,16 +93,12 @@ class Map(ScreenTmplt):
         z = self.zoom
 
         if 11 <= x <= 55 and 60 <= y <= 190:
-            print "Move left"
             self.long -= 0.005
         if 260 <= x <= 300 and 60 <= y <= 190:
-            print "Move right"
             self.long += 0.005
         if 91 <= x <= 250 and 170 <= y <= 206:
-            print "Move up"
             self.lat += 0.005
         if 91 <= x <= 250 and 30 <= y <= 80:
-            print "Move down"
             self.lat -= 0.005
         self.update_map()
 
