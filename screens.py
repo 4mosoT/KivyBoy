@@ -15,7 +15,7 @@ class ScreenTmplt(Screen):
 
         self.bind(size=self._update_rect, pos=self._update_rect)
 
-        Clock.schedule_interval(self.scanbar, 0.01)
+        Clock.schedule_interval(self.scanbar, 0.001)
         self.scanlines = InstructionGroup()
         self.initial = 0
 
@@ -55,10 +55,10 @@ class ScreenTmplt(Screen):
     def scanbar(self, *args):
         self.scanlines.clear()
         for x in range(0, 5):
-            self.scanlines.add(Color(100 / 256., 254 / 256., 181 / 256., 1.0 - (x / 10.0)))
+            self.scanlines.add(Color(14 / 256., 75 / 256., 41 / 256., .01 + (x / 100.)))
             self.scanlines.add(Line(
-                points=[self.x, self.height - 1 * x - self.initial, self.width, self.height - 1 * x - self.initial],
-                width=1))
+                points=[self.x, self.height - 4 * x - self.initial, self.width, self.height - 4 * x - self.initial],
+                width=2))
 
         self.canvas.after.add(self.scanlines)
 

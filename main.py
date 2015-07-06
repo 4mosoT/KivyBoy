@@ -27,7 +27,7 @@ class Stats(ScreenTmplt):
         self.add_widget(labels.PipLabel(text='RAM', size_hint=(0, 0), size=(30, 20), pos=(100, 205)))
         self.add_widget(self.ram)
 
-        with self.canvas.before:
+        with self.canvas.after:
             Rectangle(source='images/tboy.gif', size_hint=(0, 0), pos=(100, 80))
 
     def update(self, *args):

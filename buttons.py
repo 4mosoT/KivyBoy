@@ -29,7 +29,7 @@ class PipButton(Button):
         self.font_name = 'monofonto.ttf'
         self.font_size = "13sp"
 
-        with self.canvas.before:
+        with self.canvas:
             Color(100 / 256., 254 / 256., 181 / 256.)
             if selected:
                 self.linea = Line(rectangle=(self.x, self.y, self.width, self.height), width=1.3)

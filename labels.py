@@ -10,7 +10,7 @@ class PipLabel(kivy.uix.label.Label):
         self.font_size = "13sp"
         self.background_color = [1, 1, 1, 0]
         self.color = get_color_from_hex("#64FEB5")
-        with self.canvas.before:
+        with self.canvas:
             Color(100 / 256., 254 / 256., 181 / 256.)
             Line(width=1.3, points=[self.x - 3, self.height + self.y, self.x + self.width + 6, self.height + self.y])
             if gradient:
