@@ -15,7 +15,7 @@ class ScreenTmplt(Screen):
 
         self.bind(size=self._update_rect, pos=self._update_rect)
 
-        Clock.schedule_interval(self.scanbar, 0.001)
+        Clock.schedule_interval(self.scanbar, 0.1)
         self.scanlines = InstructionGroup()
         self.initial = 0
 
@@ -62,6 +62,6 @@ class ScreenTmplt(Screen):
 
         self.canvas.after.add(self.scanlines)
 
-        self.initial += 1
+        self.initial += 5
         if self.initial == 240:
             self.initial = 0
