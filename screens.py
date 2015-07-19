@@ -15,9 +15,9 @@ class ScreenTmplt(Screen):
 
         self.bind(size=self._update_rect, pos=self._update_rect)
 
-        Clock.schedule_interval(self.scanbar, 0.1)
-        self.scanlines = InstructionGroup()
-        self.initial = 0
+        # Clock.schedule_interval(self.scanbar, 0.1)
+        # self.scanlines = InstructionGroup()
+        # self.initial = 0
 
     def _update_rect(self, instance, *args):
 
