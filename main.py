@@ -37,12 +37,12 @@ class Stats(ScreenTmplt):
         self.ram.text = str(memory)
 
 
-class Objects(ScreenTmplt):
+class CameraScreen(ScreenTmplt):
     def __init__(self, **kwargs):
-        super(Objects, self).__init__(**kwargs)
+        super(CameraScreen, self).__init__(**kwargs)
+        self.add_widget(Camera(play=True, resolution=(320,240)))
         self.add_widget(
             buttons.PipButton(upper=True, text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))
-        self.add_widget(Camera(play=True, resolution=(320,240)))
 
 class Map(ScreenTmplt):
     def __init__(self, **kwargs):
@@ -110,10 +110,10 @@ class MainApp(App):
         root = Manager(transition=NoTransition())
         stats = Stats(name='stats')
         map = Map(name='map')
-        objects = Objects(name='objects')
+        camera = CameraScreen(name='camera')
         root.add_widget(stats)
         root.add_widget(map)
-        root.add_widget(objects)
+        root.add_widget(camera)
 
         return root
 
