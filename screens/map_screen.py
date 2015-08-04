@@ -2,6 +2,7 @@ from screens_templates import ScreenTmplt
 from kivy.uix.image import AsyncImage
 import buttons
 
+
 class Map(ScreenTmplt):
     def __init__(self, **kwargs):
         super(Map, self).__init__(**kwargs)
@@ -15,7 +16,7 @@ class Map(ScreenTmplt):
                 self.lat) + ',' + str(self.long) + '&style=|color:0x000000'
                                                    '&style=feature:road|color:0x0E4B29'
                                                    '&style=feature:all|element:labels|color:0x64FEB5|visibility:off'
-            )
+        )
 
         self.add_widget(self.g_image)
         self.add_widget(buttons.PipButton(text=self.name.upper(), size_hint=(0, 0), size=(50, 20), pos=(25, 215)))

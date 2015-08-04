@@ -5,6 +5,7 @@ from kivy.clock import Clock
 import labels
 import psutil
 
+
 class Stats(ScreenTmplt):
     def __init__(self, **kwargs):
         super(Stats, self).__init__(**kwargs)

@@ -5,11 +5,13 @@ from screens.map_screen import Map
 from screens.stats_screen import Stats
 from screens.camera_screen import CameraScreen
 
+
 # Colores: #64FEB5 #005A21
 
 class Manager(ScreenManager):
     def __init__(self, **kwargs):
         super(Manager, self).__init__(**kwargs)
+
 
 class MainApp(App):
     def build(self):

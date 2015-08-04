@@ -63,4 +63,3 @@ class ScreenTmplt(Screen):
         self.initial += 5
         if self.initial == 240:
             self.initial = 0
-
