@@ -1,6 +1,5 @@
 from screens_templates import ScreenTmplt
 from kivy.uix.camera import Camera
-
 import buttons
 
 
