@@ -1,7 +1,5 @@
 from kivy.uix.screenmanager import Screen
 from kivy.graphics import Rectangle, Line, Color
-from kivy.graphics.instructions import Instruction, InstructionGroup
-from kivy.clock import Clock
 
 import buttons
 
@@ -65,3 +63,4 @@ class ScreenTmplt(Screen):
         self.initial += 5
         if self.initial == 240:
             self.initial = 0
+
