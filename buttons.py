@@ -1,7 +1,6 @@
 from kivy.uix.button import Button
 from kivy.graphics import Line, Color
 from kivy.utils import get_color_from_hex
-from  kivy.properties import ObjectProperty, StringProperty
 
 
 
