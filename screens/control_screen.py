@@ -17,20 +17,17 @@ class Control (ScreenTmplt):
         self.slide_1.bind(value=self.ValueChange)
         self.add_widget(self.slide_1)
         self.add_widget(self.label_1)
-        try:
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(18, GPIO.OUT)
-            self.p = GPIO.PWM(18, 50)
-            self.p.start(6.9)
-        except :
-            pass
+
 
 
     def ValueChange(self, instance,value):
         self.label_1.text = str(self.slide_1.value)
         try:
-            self.p.ChangeDutyCycle(6.9 + self.slide_1.value)
-            self.p.stop()
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(18, GPIO.OUT)
+            p=GPIO.PWM(18, 50)
+            p.start(6.9 + self.slide_1.value)
+            p.stop()
             GPIO.cleanup()
         except:
             pass
