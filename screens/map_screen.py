@@ -1,6 +1,7 @@
-from screens_templates import ScreenTmplt
 from kivy.uix.image import AsyncImage
-import buttons
+
+from screens_templates import ScreenTmplt
+from buttons import buttons
 
 
 class Map(ScreenTmplt):

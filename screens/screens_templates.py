@@ -1,8 +1,7 @@
 from kivy.uix.screenmanager import Screen
 from kivy.graphics import Rectangle, Line, Color
-from kivy.graphics.instructions import InstructionGroup
-from kivy.clock import Clock
-import buttons
+
+from buttons import buttons
 
 
 class ScreenTmplt(Screen):

@@ -1,6 +1,6 @@
-from screens_templates import ScreenTmplt
 from kivy.uix.camera import Camera
-import buttons
+from screens_templates import ScreenTmplt
+from buttons import buttons
 
 
 class CameraScreen(ScreenTmplt):

@@ -3,8 +3,7 @@ from kivy.uix.screenmanager import ScreenManager, NoTransition
 
 from screens.map_screen import Map
 from screens.stats_screen import Stats
-from screens.camera_screen import CameraScreen
-
+from screens.control_screen import Control
 
 # Colores: #64FEB5 #005A21
 
@@ -18,10 +17,10 @@ class MainApp(App):
         root = Manager(transition=NoTransition())
         stats = Stats(name='stats')
         map = Map(name='map')
-        camera = CameraScreen(name='camera')
+        control = Control(name='control')
         root.add_widget(stats)
         root.add_widget(map)
-        root.add_widget(camera)
+        root.add_widget(control)
 
         return root
 
