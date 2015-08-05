@@ -30,5 +30,7 @@ class Control (ScreenTmplt):
         self.label_1.text = str(self.slide_1.value)
         try:
             self.p.ChangeDutyCycle(6.9 + self.slide_1.value)
+            self.p.stop()
+            GPIO.cleanup()
         except:
             pass
