@@ -2,11 +2,11 @@ from screens_templates import ScreenTmplt
 from sliders.sliders import PipSlider
 from buttons.buttons import PipButton
 from labels.labels import PipLabel
-'''try:
+try:
     import RPi.GPIO as GPIO
 except ImportError:
     pass
-'''
+
 
 class Control (ScreenTmplt):
     def __init__(self, **kwargs):
@@ -22,7 +22,7 @@ class Control (ScreenTmplt):
 
     def ValueChange(self, instance,value):
         self.label_1.text = str(self.slide_1.value)
-        """try:
+        try:
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(18, GPIO.OUT)
             p=GPIO.PWM(18, 50)
@@ -31,4 +31,3 @@ class Control (ScreenTmplt):
             GPIO.cleanup()
         except:
             pass
-                    """
