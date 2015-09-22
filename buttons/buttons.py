@@ -3,10 +3,11 @@ from kivy.graphics import Line, Color
 from kivy.utils import get_color_from_hex
 
 
-
 # Button for screen change
 class PipButton(Button):
-    # We can choose if the button is selected or not, and if we can draw de side lines
+    # We can choose if the button is selected or not, and if we can draw de
+    # side lines
+
     def __init__(self, upper=False, draw_lines=True, selected=False, **kwargs):
         super(PipButton, self).__init__(**kwargs)
         self.press = False
@@ -31,22 +32,32 @@ class PipButton(Button):
         with self.canvas:
             Color(100 / 256., 254 / 256., 181 / 256.)
             if selected:
-                self.linea = Line(rectangle=(self.x, self.y, self.width, self.height), width=1.3)
+                self.linea = Line(width=1.3,
+                                  rectangle=(self.x, self.y,
+                                             self.width, self.height))
             if draw_lines:
                 # Left line
                 self.linea2 = Line(width=1.3,
-                                   points=[self.x - 17, self.height / 2 + self.y, self.x - 5, self.height / 2 + self.y])
+                                   points=[self.x - 17,
+                                           self.height / 2 + self.y,
+                                           self.x - 5,
+                                           self.height / 2 + self.y])
                 # Right line
                 self.linea3 = Line(width=1.3,
-                                   points=[self.x + self.width + 17, self.height / 2. + self.y, self.x + self.width + 5,
+                                   points=[self.x + self.width + 17,
+                                           self.height / 2. + self.y,
+                                           self.x + self.width + 5,
                                            self.height / 2. + self.y])
 
             if upper:
                 aux = 0
                 for x in range(1, 9):
                     Color(100 / 256., 254 / 256., 181 / 256., .9 - x / 10.)
-                    Line(points=[self.x + self.width + 17, self.height / 2. + self.y - aux, self.x + self.width + 17,
-                                 self.height / 2. + self.y - aux - 5], width=1.3)
+                    Line(width=1.3,
+                         points=[self.x + self.width + 17,
+                                 self.height / 2. + self.y - aux,
+                                 self.x + self.width + 17,
+                                 self.height / 2. + self.y - aux - 5])
                     aux += 2
 
     def on_press(self, *args):
